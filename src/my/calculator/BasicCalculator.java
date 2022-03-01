@@ -15,7 +15,7 @@ public class BasicCalculator {
             case '*': {
                 return multiply(firstNum,secondNum);
 
-        }
+            }
             case '/': {
                 return divide(firstNum,secondNum);
 
@@ -26,7 +26,7 @@ public class BasicCalculator {
             }
             default:
                 System.out.println("Not operation");
-        }
+            }
 
         return 0.0;
     }
