@@ -23,11 +23,18 @@ public class DrinkAutomat {
     private Product selectProduct() {
         userDisplay.promptSelectProduct();
         int productNumber = userDisplay.readProductNumber();
-        System.out.println("Product number " + productNumber );
-        return null;
+        return productStorage.getProductByNumber(productNumber);
     }
-    private void payProduct(Product selectedProduct) {
+    private boolean payProduct(Product selectedProduct) {
+        String productName = selectedProduct.getName();
+        double price = selectedProduct.getPrice();
+        userDisplay.printPaymentPromt(productName,price);
+        //TODO: call payment interface
+        boolean payResult = true;
+        userDisplay.printPaymentResult(payResult);
+        return payResult;
     }
     private void giveProduct(Product selectedProduct) {
+
     }
 }

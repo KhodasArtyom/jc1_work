@@ -15,4 +15,8 @@ public class ProductStorage {
     public Product[] getProducts() {
         return products;
     }
+
+    public Product getProductByNumber(int productNumber) {
+        return products[productNumber - 1];
+    }
 }
