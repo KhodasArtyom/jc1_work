@@ -19,4 +19,12 @@ public class ProductStorage {
     public Product getProductByNumber(int productNumber) {
         return products[productNumber - 1];
     }
+
+    public boolean removeProduct(Product selectedProduct) {
+        if(selectedProduct.getCount() == 0 ) {
+            return false;
+        }
+        selectedProduct.decreaseCount();
+            return true;
+    }
 }

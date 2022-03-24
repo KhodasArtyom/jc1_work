@@ -33,7 +33,6 @@ public class UserDisplay {
             }
             scanner.nextLine();
         }
-
         return productNumber;
     }
 
@@ -49,5 +48,11 @@ public class UserDisplay {
         } else {
             System.out.println("Payment error");
         }
+    }
+
+    public void printPurchaseResult(boolean result) {
+        String res = result ? "Please take your product" : "Product not available";
+        System.out.println();
+        System.out.println(res);
     }
 }

@@ -1,6 +1,7 @@
 package org.drink.machine;
 
-import java.util.Scanner;
+import my.Version;
+
 
 public class DrinkAutomat {
     private final UserDisplay userDisplay;
@@ -11,10 +12,12 @@ public class DrinkAutomat {
         this.productStorage = new ProductStorage();
     }
     public void work() {
-        showProducts();
-        Product selectedProduct = selectProduct();
-        payProduct(selectedProduct);
-        giveProduct(selectedProduct);
+        while(true) {
+            showProducts();
+            Product selectedProduct = selectProduct();
+            payProduct(selectedProduct);
+            if (!giveProduct(selectedProduct)) break;
+        }
     }
 
     private void showProducts() {
@@ -34,7 +37,11 @@ public class DrinkAutomat {
         userDisplay.printPaymentResult(payResult);
         return payResult;
     }
-    private void giveProduct(Product selectedProduct) {
+    private boolean giveProduct(Product selectedProduct) {
+        boolean result = productStorage.removeProduct(selectedProduct);
+        userDisplay.printPurchaseResult(result);
+        return result;
+
 
     }
 }
