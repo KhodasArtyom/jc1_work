@@ -1,6 +1,7 @@
 package org.drink.machine;
 
-public  class Product {
+public  class Product implements Countable{
+
     private String name;
     private double price;
     private int count;
